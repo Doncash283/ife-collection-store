@@ -3,10 +3,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18332d">
   <meta name="description" content="Ife Collection — beauty, fashion, accessories and home decor.">
   <title>Ife Collection | Shop Your Favourites</title>
+  <script src="config.js"></script>
+
   <style>
     :root {
       --cream: #f7f3eb;
@@ -14,17 +16,21 @@
       --green: #31584d;
       --soft: #e9e2d5;
       --accent: #b98268;
-      --white: #ffffff;
+      --white: #fff;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: var(--cream);
       color: var(--dark);
     }
+
     a { color: inherit; text-decoration: none; }
     button, input { font: inherit; }
+
     .topbar {
       background: var(--dark);
       color: white;
@@ -33,6 +39,7 @@
       font-size: 11px;
       letter-spacing: 1.5px;
     }
+
     header {
       display: flex;
       align-items: center;
@@ -45,23 +52,30 @@
       border-bottom: 1px solid var(--soft);
       gap: 15px;
     }
+
     .brand { display: flex; align-items: center; gap: 10px; }
+
     .brand-mark {
-      width: 39px; height: 39px;
-      display: grid; place-items: center;
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
       border: 1px solid var(--dark);
       border-radius: 50%;
-      font-family: Georgia, serif;
-      font-size: 22px;
+      font: 22px Georgia, serif;
     }
-    .brand-name { font-family: Georgia, serif; font-size: 19px; }
+
+    .brand-name { font: 19px Georgia, serif; }
+
     .brand-name small {
       display: block;
       font: 9px Arial, sans-serif;
       letter-spacing: 3px;
       margin-top: 3px;
     }
+
     nav { display: flex; gap: 22px; font-size: 13px; }
+
     .cart-button, .dark-button {
       background: var(--dark);
       color: white;
@@ -70,6 +84,7 @@
       border-radius: 25px;
       cursor: pointer;
     }
+
     .hero {
       padding: 65px 7%;
       display: grid;
@@ -77,6 +92,7 @@
       gap: 35px;
       align-items: center;
     }
+
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -84,15 +100,20 @@
       color: var(--accent);
       font-weight: bold;
     }
+
     h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(43px, 6vw, 76px);
-      line-height: 1.04;
-      font-weight: normal;
+      font: normal clamp(43px, 6vw, 76px)/1.04 Georgia, serif;
       margin: 18px 0;
     }
+
     h1 em { color: var(--accent); }
-    .hero p { line-height: 1.8; color: #66736b; max-width: 410px; }
+
+    .hero p {
+      line-height: 1.8;
+      color: #66736b;
+      max-width: 410px;
+    }
+
     .hero-image {
       min-height: 320px;
       border-radius: 180px 180px 12px 12px;
@@ -100,7 +121,9 @@
         linear-gradient(140deg, rgba(24,51,45,.08), rgba(24,51,45,.25)),
         url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85") center/cover;
     }
+
     .section { padding: 45px 6%; }
+
     .section-heading {
       display: flex;
       justify-content: space-between;
@@ -108,12 +131,15 @@
       gap: 15px;
       margin-bottom: 25px;
     }
+
     h2 { font: normal 35px Georgia, serif; margin: 8px 0; }
+
     .categories, .products {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
     }
+
     .category {
       background: var(--soft);
       padding: 28px 12px;
@@ -122,16 +148,20 @@
       cursor: pointer;
       border: 1px solid transparent;
     }
+
     .category:hover { border-color: var(--accent); }
     .category span { display: block; font-size: 28px; margin-bottom: 12px; }
     .category strong { font: 17px Georgia, serif; }
+
     .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
     .product {
       background: white;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid #eee8dd;
     }
+
     .product img {
       width: 100%;
       height: 210px;
@@ -139,15 +169,19 @@
       background: var(--soft);
       display: block;
     }
+
     .product-info { padding: 15px; }
+
     .product-category {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #78847c;
     }
+
     .product h3 { font: 19px Georgia, serif; margin: 8px 0; }
     .price { font-weight: bold; margin-bottom: 13px; }
+
     .add-button {
       width: 100%;
       padding: 11px;
@@ -156,7 +190,9 @@
       border-radius: 3px;
       cursor: pointer;
     }
+
     .add-button:hover { background: var(--dark); color: white; }
+
     .empty-products {
       grid-column: 1 / -1;
       padding: 30px;
@@ -164,6 +200,7 @@
       text-align: center;
       line-height: 1.8;
     }
+
     .about {
       margin: 35px 6%;
       padding: 45px 25px;
@@ -172,7 +209,9 @@
       text-align: center;
       border-radius: 8px;
     }
+
     .about p { color: #e1e8e1; line-height: 1.8; }
+
     footer {
       padding: 30px 6%;
       border-top: 1px solid var(--soft);
@@ -182,6 +221,7 @@
       flex-wrap: wrap;
       font-size: 12px;
     }
+
     .overlay {
       position: fixed;
       inset: 0;
@@ -189,28 +229,35 @@
       z-index: 10;
       display: none;
     }
+
     .overlay.open { display: block; }
+
     .drawer {
       position: absolute;
-      right: 0; top: 0;
+      right: 0;
+      top: 0;
       height: 100%;
       width: min(420px, 100%);
       background: var(--cream);
       padding: 24px;
       overflow-y: auto;
     }
+
     .drawer-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .drawer-head h2 { font-size: 28px; }
+
     .close-button {
       border: 0;
       background: transparent;
       font-size: 26px;
       cursor: pointer;
     }
+
     .cart-item {
       display: flex;
       justify-content: space-between;
@@ -218,7 +265,9 @@
       padding: 15px 0;
       border-bottom: 1px solid var(--soft);
     }
+
     .cart-item small { display: block; margin-top: 6px; }
+
     .remove-button {
       border: 0;
       background: transparent;
@@ -226,6 +275,7 @@
       cursor: pointer;
       font-size: 12px;
     }
+
     .total {
       display: flex;
       justify-content: space-between;
@@ -233,8 +283,10 @@
       font-size: 18px;
       margin: 22px 0;
     }
+
     .checkout-form { display: grid; gap: 12px; }
     .checkout-form label { font-size: 12px; }
+
     .checkout-form input {
       width: 100%;
       padding: 12px;
@@ -243,8 +295,10 @@
       background: white;
       margin-top: 5px;
     }
+
     .checkout-form button { width: 100%; }
     .note { font-size: 12px; line-height: 1.7; color: #66736b; }
+
     @media (max-width: 650px) {
       header { padding: 14px 4%; flex-wrap: wrap; }
       nav { order: 3; width: 100%; justify-content: space-between; gap: 8px; }
@@ -262,20 +316,23 @@
     }
   </style>
 </head>
+
 <body>
   <div class="topbar">IFE COLLECTION · CURATED WITH CARE</div>
 
   <header>
-    <a class="brand" href="#">
+    <a class="brand" href="#home">
       <span class="brand-mark">I</span>
       <span class="brand-name">Ife<small>COLLECTION</small></span>
     </a>
+
     <nav>
       <a href="#home">Home</a>
       <a href="#categories">Categories</a>
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
     </nav>
+
     <button class="cart-button" onclick="openCart()">
       Bag (<span id="cart-count">0</span>)
     </button>
@@ -299,6 +356,7 @@
           <h2>Shop by category</h2>
         </div>
       </div>
+
       <div class="categories">
         <a class="category" href="#shop" onclick="filterCategory('Beauty')"><span>✧</span><strong>Beauty</strong></a>
         <a class="category" href="#shop" onclick="filterCategory('Fashion')"><span>♡</span><strong>Fashion</strong></a>
@@ -315,11 +373,9 @@
         </div>
         <button class="add-button" style="width:auto" onclick="filterCategory('All')">View all</button>
       </div>
+
       <div class="products" id="products">
-        <div class="empty-products">
-          <h3>Something lovely is coming.</h3>
-          Our products will appear here once we add them to the store.
-        </div>
+        <div class="empty-products">Loading our collection...</div>
       </div>
       <p class="note">Prices and product availability will be confirmed before your order is accepted.</p>
     </section>
@@ -345,6 +401,7 @@
       </div>
       <div id="cart-items"></div>
       <div class="total"><span>Total</span><span id="cart-total">₦0</span></div>
+
       <form class="checkout-form" onsubmit="checkout(event)">
         <label>Your full name
           <input id="customer-name" required autocomplete="name" placeholder="Enter your name">
@@ -357,7 +414,7 @@
         </label>
         <button class="dark-button" type="submit">Order on WhatsApp</button>
       </form>
-      <p class="note">Submitting your order opens WhatsApp. Your order is not confirmed until the store responds.</p>
+      <p class="note">Your order opens in WhatsApp and is confirmed only after the store responds.</p>
     </aside>
   </div>
 
@@ -365,11 +422,64 @@
     const WHATSAPP_NUMBER = "2349126492543";
     let cart = [];
     let activeCategory = "All";
-
-    // We'll add your real products in the next steps.
     let products = [];
 
-    const money = amount => "₦" + Number(amount).toLocaleString("en-NG");
+    const money = amount =>
+      "₦" + Number(amount).toLocaleString("en-NG");
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[c]);
+    }
+
+    async function loadProducts() {
+      const container = document.getElementById("products");
+
+      try {
+        if (!SUPABASE_URL || !SUPABASE_KEY) {
+          throw new Error("Supabase settings are missing from config.js");
+        }
+
+        const response = await fetch(
+          `${SUPABASE_URL}/rest/v1/ife_products?select=id,name,category,description,price,image_url,stock&archived=eq.false&stock=gt.0&order=created_at.desc`,
+          {
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Supabase returned HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        products = data.map(product => ({
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          description: product.description,
+          price: product.price,
+          image: product.image_url
+        }));
+
+        renderProducts();
+      } catch (error) {
+        console.error("Product loading error:", error);
+        container.innerHTML = `
+          <div class="empty-products">
+            <h3>Our collection is getting ready.</h3>
+            Products could not be loaded. Please try again soon.
+          </div>`;
+      }
+    }
 
     function renderProducts() {
       const container = document.getElementById("products");
@@ -381,13 +491,19 @@
         activeCategory === "All" ? "Our collection" : activeCategory;
 
       if (!visible.length) {
-        container.innerHTML = '<div class="empty-products"><h3>Something lovely is coming.</h3>Products in this category will appear here when added.</div>';
+        container.innerHTML = `
+          <div class="empty-products">
+            <h3>Something lovely is coming.</h3>
+            No products are available in this category yet.
+          </div>`;
         return;
       }
 
       container.innerHTML = visible.map(p => `
         <article class="product">
-          <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" loading="lazy"
+          <img src="${escapeHTML(p.image)}"
+               alt="${escapeHTML(p.name)}"
+               loading="lazy"
                onerror="this.style.display='none'">
           <div class="product-info">
             <div class="product-category">${escapeHTML(p.category)}</div>
@@ -399,12 +515,6 @@
       `).join("");
     }
 
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, c => ({
-        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-      })[c]);
-    }
-
     function filterCategory(category) {
       activeCategory = category;
       renderProducts();
@@ -413,9 +523,11 @@
     function addToCart(id) {
       const product = products.find(p => p.id === id);
       if (!product) return;
+
       const item = cart.find(p => p.id === id);
       if (item) item.quantity++;
-      else cart.push({...product, quantity:1});
+      else cart.push({ ...product, quantity: 1 });
+
       renderCart();
       openCart();
     }
@@ -427,19 +539,24 @@
 
     function renderCart() {
       document.getElementById("cart-count").textContent =
-        cart.reduce((sum,p) => sum + p.quantity, 0);
+        cart.reduce((sum, p) => sum + p.quantity, 0);
+
       document.getElementById("cart-total").textContent =
-        money(cart.reduce((sum,p) => sum + p.price*p.quantity, 0));
+        money(cart.reduce((sum, p) => sum + p.price * p.quantity, 0));
 
       const container = document.getElementById("cart-items");
+
       if (!cart.length) {
         container.innerHTML = "<p>Your bag is empty. Find something lovely to add!</p>";
         return;
       }
+
       container.innerHTML = cart.map(p => `
         <div class="cart-item">
-          <div><strong>${escapeHTML(p.name)}</strong>
-            <small>${money(p.price)} × ${p.quantity}</small></div>
+          <div>
+            <strong>${escapeHTML(p.name)}</strong>
+            <small>${money(p.price)} × ${p.quantity}</small>
+          </div>
           <button class="remove-button" onclick="removeFromCart('${p.id}')">Remove</button>
         </div>
       `).join("");
@@ -448,12 +565,14 @@
     function openCart() {
       document.getElementById("cart-overlay").classList.add("open");
     }
+
     function closeCart() {
       document.getElementById("cart-overlay").classList.remove("open");
     }
 
     function checkout(event) {
       event.preventDefault();
+
       if (!cart.length) {
         alert("Your bag is empty. Please add a product first.");
         return;
@@ -462,14 +581,15 @@
       const name = document.getElementById("customer-name").value.trim();
       const phone = document.getElementById("customer-phone").value.trim();
       const address = document.getElementById("customer-address").value.trim();
+
       if (!name || !phone || !address) {
         alert("Please complete all your details.");
         return;
       }
 
-      const total = cart.reduce((sum,p) => sum + p.price*p.quantity, 0);
+      const total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0);
       const lines = cart.map(p =>
-        `- ${p.name} x ${p.quantity}: ${money(p.price*p.quantity)}`
+        `- ${p.name} x ${p.quantity}: ${money(p.price * p.quantity)}`
       ).join("\n");
 
       const message = [
@@ -494,8 +614,8 @@
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
-    renderProducts();
     renderCart();
+    loadProducts();
   </script>
 </body>
 </html>
